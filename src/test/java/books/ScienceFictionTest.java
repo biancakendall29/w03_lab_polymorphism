@@ -1,5 +1,6 @@
 package books;
 
+import checkouts.Checkout;
 import checkouts.ScienceFictionCheckout;
 import libraries.Library;
 
@@ -17,7 +18,8 @@ public class ScienceFictionTest {
     public void setUp() {
         Library library = new Library();
         scienceFiction = new ScienceFiction("Dune", "Frank Herbert", 91011, library, true);
-        library.addSciFiCheckOut(new ScienceFictionCheckout("John Doe", "25 April 2022", BookStatus.RETURNED));
+        sfCheckOut = new ScienceFictionCheckout("John Doe", "25 April 2022", BookStatus.RETURNED);
+        library.addSciFiCheckOut(sfCheckOut);
     }
 
     @Test
@@ -31,20 +33,19 @@ public class ScienceFictionTest {
         assertThat(scienceFiction.isFuturistic()).isEqualTo(true);
     }
 
-//    @Test
-//    public void canGetIsOut() {
-//        scienceFiction.takeOut();
-//        assertThat(sfCheckOut.getIsOut()).isEqualTo(BookStatus.OUT);
-//    }
-//
-//    @Test
-//    public void canGetIsOut2() {
-//        assertThat(scienceFiction.takeOut(sfCheckOut)).isEqualTo(BookStatus.OUT);
-//    }
+    @Test
+    public void canCheckout() {
+        Checkout checkout = scienceFiction.takeOut();
+        assertThat(checkout.getStatus()).isEqualTo(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
+    }
 
-//    @Test
-//    public void canGetIsTakenOut() {
-//        assertThat(scienceFiction.getIsTakenOut()).isEqualTo(BookStatus.OUT);
-//    }
+    @Test
+    public void canCheckout2() {
+        assertThat(scienceFiction.takeOut(sfCheckOut).getStatus()).isEqualTo(BookStatus.OUT);
+        System.out.println(sfCheckOut.getStatus());
+    }
+
+
 
 }

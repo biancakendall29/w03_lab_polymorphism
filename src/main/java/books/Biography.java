@@ -11,16 +11,16 @@ public class Biography extends Book {
 
     @Override
     public Checkout takeOut() {
-        Checkout checkout = this.home.getBioLog().pop();
-        System.out.println(checkout.getIsOut());
-        checkout.setIsOut(BookStatus.OUT);
+        Checkout checkout = this.home.getBioCheckOut().pop();
+        System.out.println(checkout.getStatus());
+        checkout.setStatus(BookStatus.OUT);
         return checkout;
     }
 
     @Override
     public Checkout takeOut(Checkout checkout) {
-        System.out.println(checkout.getIsOut());
-        checkout.setIsOut(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
+        checkout.setStatus(BookStatus.OUT);
         return checkout;
     }
 

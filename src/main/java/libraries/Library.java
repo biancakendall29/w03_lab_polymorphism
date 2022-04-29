@@ -45,7 +45,7 @@ public class Library implements IFiction {
         return sciFiCheckOuts;
      }
 
-     public LinkedList<BiographyCheckout> getBioLog() {
+     public LinkedList<BiographyCheckout> getBioCheckOut() {
         return bioCheckOuts;
     }
 

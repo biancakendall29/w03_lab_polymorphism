@@ -12,14 +12,14 @@ public class Checkout {
     public Checkout(String name, String date, BookStatus status) {
         this.name = name;
         this.date = date;
-        this.status = BookStatus.RETURNED;
+        this.status = status;
     }
 
-    public BookStatus getIsOut() {
+    public BookStatus getStatus() {
         return this.status;
     }
 
-    public void setIsOut(BookStatus status) {
+    public void setStatus(BookStatus status) {
         this.status = status;
     }
 

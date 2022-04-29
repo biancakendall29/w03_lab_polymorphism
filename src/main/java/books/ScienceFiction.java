@@ -21,15 +21,17 @@ public class ScienceFiction extends Book implements IFiction {
     @Override
     public Checkout takeOut() {
         Checkout checkout = this.home.getSciFiCheckOut().getLast();
-        System.out.println(checkout.getIsOut());
-        checkout.setIsOut(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
+        checkout.setStatus(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
         return checkout;
     }
 
     @Override
     public Checkout takeOut(Checkout checkout) {
-        System.out.println(checkout.getIsOut());
-        checkout.setIsOut(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
+        checkout.setStatus(BookStatus.OUT);
+        System.out.println(checkout.getStatus());
         return checkout;
     }
 
