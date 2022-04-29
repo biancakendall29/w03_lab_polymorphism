@@ -5,6 +5,7 @@ import checkouts.ScienceFictionCheckout;
 import checkouts.BiographyCheckout;
 import interfaces.IFiction;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,12 +13,13 @@ import java.util.List;
 public class Library implements IFiction {
 
     List<Book> books;
+    List<IFiction> fictions;
     protected LinkedList<ScienceFictionCheckout> sciFiCheckOuts = new LinkedList<>();
     protected LinkedList<BiographyCheckout> bioCheckOuts = new LinkedList<>();
-    private IFiction fiction;
 
     public Library() {
-        books = new ArrayList<>();
+        this.books = new ArrayList<>();
+        this.fictions = new ArrayList<>();
     }
 
     @Override
@@ -48,6 +50,16 @@ public class Library implements IFiction {
      public LinkedList<BiographyCheckout> getBioCheckOut() {
         return bioCheckOuts;
     }
+
+    public void addFiction(IFiction fiction) {
+        fictions.add(fiction);
+    }
+
+    public List<IFiction> getFiction() {
+        return this.fictions;
+    }
+
+
 
 
 
